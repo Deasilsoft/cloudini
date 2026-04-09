@@ -1,56 +1,13 @@
 locals {
-  bucket_name = var.project_name
-
-  terraform_state_key = "web/terraform.tfstate"
-
   common_tags = {
     Project = "cloudini"
     Service = "web"
     Managed = "terraform"
   }
-
-  terraform_state_tags = {
-    Project = "cloudini"
-    Service = "terraform-state"
-    Managed = "terraform"
-  }
-}
-
-resource "aws_s3_bucket" "terraform_state" {
-  bucket = var.terraform_state_bucket_name
-
-  tags = local.terraform_state_tags
-}
-
-resource "aws_s3_bucket_public_access_block" "terraform_state" {
-  bucket = aws_s3_bucket.terraform_state.id
-
-  block_public_acls       = true
-  ignore_public_acls      = true
-  block_public_policy     = true
-  restrict_public_buckets = true
-}
-
-resource "aws_s3_bucket_versioning" "terraform_state" {
-  bucket = aws_s3_bucket.terraform_state.id
-
-  versioning_configuration {
-    status = "Enabled"
-  }
-}
-
-resource "aws_s3_bucket_server_side_encryption_configuration" "terraform_state" {
-  bucket = aws_s3_bucket.terraform_state.id
-
-  rule {
-    apply_server_side_encryption_by_default {
-      sse_algorithm = "AES256"
-    }
-  }
 }
 
 resource "aws_s3_bucket" "site" {
-  bucket = local.bucket_name
+  bucket = "cloudini-web"
 
   tags = local.common_tags
 }
@@ -73,8 +30,8 @@ resource "aws_s3_bucket_versioning" "site" {
 }
 
 resource "aws_cloudfront_origin_access_control" "site" {
-  name                              = "${var.project_name}-oac"
-  description                       = "OAC for ${var.project_name}"
+  name                              = "cloudini-web-oac"
+  description                       = "OAC for cloudini-web"
   origin_access_control_origin_type = "s3"
   signing_behavior                  = "always"
   signing_protocol                  = "sigv4"
@@ -82,10 +39,10 @@ resource "aws_cloudfront_origin_access_control" "site" {
 
 resource "aws_cloudfront_distribution" "site" {
   enabled             = true
-  comment             = var.project_name
+  comment             = "cloudini-web"
   default_root_object = "index.html"
 
-  aliases = [var.site_domain_name]
+  aliases = ["cloudini.org"]
 
   origin {
     domain_name              = aws_s3_bucket.site.bucket_regional_domain_name
@@ -131,7 +88,7 @@ resource "aws_cloudfront_distribution" "site" {
   }
 
   viewer_certificate {
-    acm_certificate_arn      = var.site_certificate_arn
+    acm_certificate_arn      = "arn:aws:acm:us-east-1:730747453261:certificate/c156aff4-0705-4406-ba85-3a8fe3820987"
     ssl_support_method       = "sni-only"
     minimum_protocol_version = "TLSv1.2_2021"
   }
