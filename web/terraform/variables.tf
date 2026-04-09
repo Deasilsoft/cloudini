@@ -9,3 +9,9 @@ variable "project_name" {
   description = "Project name used in resource naming."
   default     = "cloudini-web"
 }
+
+variable "terraform_state_bucket_name" {
+  type        = string
+  description = "S3 bucket name used for Terraform state."
+  default     = "cloudini-terraform-state"
+}
