@@ -2,6 +2,12 @@
 .idea/
 *.iml
 
+# Terraform and AWS CI/CD
+**/.terraform/
+**/terraform.tfstate
+**/terraform.tfstate.*
+trust-policy.json
+
 # Logs
 logs
 *.log
