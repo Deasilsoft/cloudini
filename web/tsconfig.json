@@ -7,9 +7,8 @@
     "jsx": "react-jsx",
     "tsBuildInfoFile": "dist/.tsbuildinfo",
     "types": ["vite/client"],
-    "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["./src/*"]
     }
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"]
