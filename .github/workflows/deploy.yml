@@ -19,17 +19,21 @@ env:
   AWS_ROLE_ARN: arn:aws:iam::730747453261:role/github-actions-deploy
 
 jobs:
-  validate:
+  deploy:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v5
+    environment: production
 
-      - uses: actions/setup-node@v6
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v5
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
         with:
           node-version: 24
           cache: npm
 
-      - name: Install Node dependencies
+      - name: Install dependencies
         run: npm ci
 
       - name: Check formatting
@@ -41,7 +45,7 @@ jobs:
       - name: Type-check
         run: npm run typecheck
 
-      - name: Build web
+      - name: Build web app
         run: npm run build
 
       - name: Configure AWS credentials
@@ -58,9 +62,9 @@ jobs:
 
       - name: Terraform init
         working-directory: web/terraform
-        run: terraform init
+        run: terraform init -input=false
 
-      - name: Terraform fmt
+      - name: Terraform format check
         working-directory: web/terraform
         run: terraform fmt -check -recursive
 
@@ -70,56 +74,31 @@ jobs:
 
       - name: Terraform plan
         working-directory: web/terraform
-        run: terraform plan -out=tfplan
-
-      - name: Upload Terraform plan
-        uses: actions/upload-artifact@v4
-        with:
-          name: tfplan
-          path: web/terraform/tfplan
-
-  deploy:
-    needs: validate
-    runs-on: ubuntu-latest
-    environment: production
-    steps:
-      - uses: actions/checkout@v5
-
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v4
-        with:
-          role-to-assume: ${{ env.AWS_ROLE_ARN }}
-          aws-region: ${{ env.AWS_REGION }}
-
-      - name: Verify AWS identity
-        run: aws sts get-caller-identity
-
-      - name: Set up Terraform
-        uses: hashicorp/setup-terraform@v3
-
-      - name: Download Terraform plan
-        uses: actions/download-artifact@v4
-        with:
-          name: tfplan
-          path: web/terraform
-
-      - name: Terraform init
-        working-directory: web/terraform
-        run: terraform init
+        run: terraform plan -input=false -out=tfplan
 
       - name: Terraform apply
         working-directory: web/terraform
-        run: terraform apply -auto-approve tfplan
+        run: terraform apply -input=false -auto-approve tfplan
 
-      - name: Deploy web
-        run: echo "Deploy web app here"
+      - name: Read Terraform outputs
+        id: terraform_outputs
+        working-directory: web/terraform
+        run: |
+          echo "bucket_uri=$(terraform output -raw bucket_uri)" >> "$GITHUB_OUTPUT"
+          echo "cloudfront_distribution_id=$(terraform output -raw cloudfront_distribution_id)" >> "$GITHUB_OUTPUT"
+          echo "cloudfront_domain_name=$(terraform output -raw cloudfront_domain_name)" >> "$GITHUB_OUTPUT"
 
-      - name: Invalidate caches
-        run: echo "Invalidate CDN/cache here"
+      - name: Deploy web app to S3
+        run: |
+          aws s3 sync web/dist "${{ steps.terraform_outputs.outputs.bucket_uri }}" --delete
 
-  smoke-test:
-    needs: deploy
-    runs-on: ubuntu-latest
-    steps:
-      - name: Smoke tests
-        run: echo "Add smoke tests here"
+      - name: Invalidate CloudFront cache
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id "${{ steps.terraform_outputs.outputs.cloudfront_distribution_id }}" \
+            --paths "/*"
+
+      - name: Smoke test deployment
+        run: |
+          curl --fail --silent --show-error \
+            "https://${{ steps.terraform_outputs.outputs.cloudfront_domain_name }}" > /dev/null
