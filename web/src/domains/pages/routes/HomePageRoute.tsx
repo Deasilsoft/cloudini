@@ -34,7 +34,7 @@ export default () => {
               </a>
             </Button>
             <div className="inline-flex items-center rounded-md border px-3 py-2 text-sm text-muted-foreground">
-              Early development—not ready for production use
+              Early development. Not ready for use in production environments.
             </div>
           </div>
         </section>
