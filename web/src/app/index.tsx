@@ -1,4 +1,4 @@
-import { AppProviders } from "@/app/providers/AppProviders";
+import { AppProviders } from "@/app/providers/app";
 import { router } from "@/app/router";
 import React from "react";
 import ReactDOM from "react-dom/client";

@@ -1,7 +1,7 @@
 import { Meta } from "@/shared/components/meta";
 import { Button } from "@/shared/components/ui/button";
 
-export default () => {
+export default function TermsOfService() {
   return (
     <>
       <Meta
@@ -9,8 +9,8 @@ export default () => {
         description="Terms and conditions for using Cloudini."
       />
 
-      <section className="max-w-3xl space-y-8">
-        <header className="space-y-2">
+      <article className="max-w-3xl space-y-8">
+        <header className="space-y-3">
           <h1 className="text-3xl font-semibold tracking-tight">
             Terms of Service
           </h1>
@@ -21,7 +21,7 @@ export default () => {
 
         <section className="space-y-3">
           <h2 className="text-xl font-semibold">Acceptable use</h2>
-          <ul className="list-disc space-y-1 pl-5 text-muted-foreground">
+          <ul className="text-muted-foreground list-disc space-y-1 pl-5">
             <li>
               Do not attempt to disrupt, misuse, or gain unauthorized access to
               the website, systems, or data.
@@ -49,11 +49,11 @@ export default () => {
         <section className="space-y-3">
           <h2 className="text-xl font-semibold">No warranty</h2>
           <p className="text-muted-foreground">
-            This website and the Cloudini software are provided “as is”, without
+            This website and the Cloudini software are provided "as is", without
             warranties of any kind.
           </p>
         </section>
-      </section>
+      </article>
     </>
   );
-};
+}

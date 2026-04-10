@@ -1,21 +1,21 @@
 import { Meta } from "@/shared/components/meta";
 import { Button } from "@/shared/components/ui/button";
 
-export default () => {
+export default function Home() {
   return (
     <>
       <Meta description="Write code. Summon a serverless app." />
 
-      <section className="max-w-5xl space-y-12">
+      <div className="max-w-5xl space-y-12">
         <section className="space-y-6">
           <div className="space-y-3">
-            <p className="text-sm font-medium text-muted-foreground">
+            <p className="text-muted-foreground text-sm font-medium">
               Cloudini
             </p>
             <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
               Write code. Summon a serverless app.
             </h1>
-            <p className="max-w-3xl text-base leading-7 text-muted-foreground sm:text-lg">
+            <p className="text-muted-foreground max-w-3xl text-base leading-7 sm:text-lg">
               Cloudini is a framework and CLI for generating a serverless
               application and its infrastructure from structured application
               code.
@@ -33,21 +33,21 @@ export default () => {
                 View on GitHub
               </a>
             </Button>
-            <div className="inline-flex items-center rounded-md border px-3 py-2 text-sm text-muted-foreground">
+            <div className="text-muted-foreground inline-flex items-center rounded-md border px-3 py-2 text-sm">
               Early development. Not ready for use in production environments.
             </div>
           </div>
         </section>
 
-        <section className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
-          <div className="space-y-4 rounded-xl border p-6">
+        <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
+          <section className="space-y-4 rounded-xl border p-6">
             <h2 className="text-2xl font-semibold tracking-tight">Vision</h2>
             <p className="text-muted-foreground">
               Cloudini aims to turn structured application code into a
               predictable serverless backend and the infrastructure required to
               run it.
             </p>
-            <ul className="list-disc space-y-2 pl-5 text-muted-foreground">
+            <ul className="text-muted-foreground list-disc space-y-2 pl-5">
               <li>
                 Generate application code and infrastructure through a CLI, with
                 no hidden functionality.
@@ -64,9 +64,9 @@ export default () => {
                 and Angular.
               </li>
             </ul>
-          </div>
+          </section>
 
-          <div className="space-y-4 rounded-xl border p-6">
+          <section className="space-y-4 rounded-xl border p-6">
             <h2 className="text-2xl font-semibold tracking-tight">Status</h2>
             <p className="text-muted-foreground">
               Cloudini is in early development. The MVP is focused on delivering
@@ -78,18 +78,18 @@ export default () => {
               serverless applications with a predictable and practical set of
               core capabilities.
             </p>
-            <div className="rounded-lg bg-muted p-4">
+            <div className="bg-muted rounded-lg p-4">
               <p className="text-sm font-medium">Contributing</p>
-              <p className="mt-1 text-sm text-muted-foreground">
+              <p className="text-muted-foreground mt-1 text-sm">
                 Not open for contributions yet.
               </p>
             </div>
-            <div className="rounded-lg bg-muted p-4">
+            <div className="bg-muted rounded-lg p-4">
               <p className="text-sm font-medium">License</p>
-              <p className="mt-1 text-sm text-muted-foreground">MIT</p>
+              <p className="text-muted-foreground mt-1 text-sm">MIT</p>
             </div>
-          </div>
-        </section>
+          </section>
+        </div>
 
         <section className="space-y-5">
           <div className="space-y-2">
@@ -103,58 +103,58 @@ export default () => {
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-            <article className="rounded-xl border p-5">
+            <div className="rounded-xl border p-5">
               <h3 className="text-base font-semibold">Code generation</h3>
-              <p className="mt-2 text-sm leading-6 text-muted-foreground">
+              <p className="text-muted-foreground mt-2 text-sm leading-6">
                 Generate application code and infrastructure through the CLI,
                 without relying on hidden runtime behavior.
               </p>
-            </article>
+            </div>
 
-            <article className="rounded-xl border p-5">
+            <div className="rounded-xl border p-5">
               <h3 className="text-base font-semibold">Predictable mapping</h3>
-              <p className="mt-2 text-sm leading-6 text-muted-foreground">
+              <p className="text-muted-foreground mt-2 text-sm leading-6">
                 Cloudini interfaces are intentionally minimal and exist to map
                 code to cloud infrastructure in a consistent and predictable
                 way.
               </p>
-            </article>
+            </div>
 
-            <article className="rounded-xl border p-5">
+            <div className="rounded-xl border p-5">
               <h3 className="text-base font-semibold">REST API</h3>
-              <p className="mt-2 text-sm leading-6 text-muted-foreground">
+              <p className="text-muted-foreground mt-2 text-sm leading-6">
                 Define API controllers in code and generate serverless HTTP
                 infrastructure for the selected cloud provider.
               </p>
-            </article>
+            </div>
 
-            <article className="rounded-xl border p-5">
+            <div className="rounded-xl border p-5">
               <h3 className="text-base font-semibold">Relational database</h3>
-              <p className="mt-2 text-sm leading-6 text-muted-foreground">
+              <p className="text-muted-foreground mt-2 text-sm leading-6">
                 Provision a managed relational database for application data.
               </p>
-            </article>
+            </div>
 
-            <article className="rounded-xl border p-5">
+            <div className="rounded-xl border p-5">
               <h3 className="text-base font-semibold">Caching and queues</h3>
-              <p className="mt-2 text-sm leading-6 text-muted-foreground">
+              <p className="text-muted-foreground mt-2 text-sm leading-6">
                 Support key-value infrastructure for caching and queue-driven
                 workflows.
               </p>
-            </article>
+            </div>
 
-            <article className="rounded-xl border p-5">
+            <div className="rounded-xl border p-5">
               <h3 className="text-base font-semibold">
                 Static frontend hosting
               </h3>
-              <p className="mt-2 text-sm leading-6 text-muted-foreground">
+              <p className="text-muted-foreground mt-2 text-sm leading-6">
                 Deploy built frontend assets for frameworks like React, Vue, and
                 Angular through object storage and CDN delivery.
               </p>
-            </article>
+            </div>
           </div>
         </section>
-      </section>
+      </div>
     </>
   );
-};
+}

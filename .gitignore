@@ -2,6 +2,10 @@
 .idea/
 *.iml
 
+# OS
+.DS_Store
+Thumbs.db
+
 # Terraform and AWS CI/CD
 **/.terraform/
 **/terraform.tfstate

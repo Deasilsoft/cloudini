@@ -1,4 +1,4 @@
-import AppLayout from "@/app/layouts/AppLayout";
+import AppLayout from "@/app/layouts/app";
 import { createBrowserRouter } from "react-router";
 
 export const router = createBrowserRouter([
@@ -10,16 +10,14 @@ export const router = createBrowserRouter([
         index: true,
         lazy: {
           Component: () =>
-            import("@/domains/pages/routes/HomePageRoute").then(
-              (m) => m.default,
-            ),
+            import("@/domains/pages/routes/home").then((m) => m.default),
         },
       },
       {
         path: "privacy-policy",
         lazy: {
           Component: () =>
-            import("@/domains/pages/routes/PrivacyPolicyPageRoute").then(
+            import("@/domains/pages/routes/privacy-policy").then(
               (m) => m.default,
             ),
         },
@@ -28,7 +26,7 @@ export const router = createBrowserRouter([
         path: "terms",
         lazy: {
           Component: () =>
-            import("@/domains/pages/routes/TermsPageRoute").then(
+            import("@/domains/pages/routes/terms-of-service").then(
               (m) => m.default,
             ),
         },
@@ -37,9 +35,7 @@ export const router = createBrowserRouter([
         path: "contact-us",
         lazy: {
           Component: () =>
-            import("@/domains/pages/routes/ContactUsPageRoute").then(
-              (m) => m.default,
-            ),
+            import("@/domains/pages/routes/contact-us").then((m) => m.default),
         },
       },
     ],

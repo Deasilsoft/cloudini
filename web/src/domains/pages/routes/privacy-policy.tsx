@@ -1,6 +1,6 @@
 import { Meta } from "@/shared/components/meta";
 
-export default () => {
+export default function PrivacyPolicy() {
   return (
     <>
       <Meta
@@ -8,8 +8,8 @@ export default () => {
         description="Learn how Cloudini processes and protects your data."
       />
 
-      <section className="max-w-3xl space-y-8">
-        <header className="space-y-2">
+      <article className="max-w-3xl space-y-8">
+        <header className="space-y-3">
           <h1 className="text-3xl font-semibold tracking-tight">
             Privacy Policy
           </h1>
@@ -57,7 +57,7 @@ export default () => {
             This policy may be updated if the website or infrastructure changes.
           </p>
         </section>
-      </section>
+      </article>
     </>
   );
-};
+}
