@@ -38,6 +38,27 @@ export const router = createBrowserRouter([
             import("@/domains/pages/routes/contact-us").then((m) => m.default),
         },
       },
+      {
+        path: "blog",
+        lazy: {
+          Component: () =>
+            import("@/domains/blog/routes").then((m) => m.default),
+        },
+      },
+      {
+        path: "blog/:slug",
+        lazy: {
+          Component: () =>
+            import("@/domains/blog/routes/article").then((m) => m.default),
+        },
+      },
+      {
+        path: "*",
+        lazy: {
+          Component: () =>
+            import("@/domains/errors/routes/not-found").then((m) => m.default),
+        },
+      },
     ],
   },
 ]);

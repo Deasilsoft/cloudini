@@ -6,7 +6,7 @@ export default function TermsOfService() {
     <>
       <Meta
         title="Terms of Service"
-        description="Terms and conditions for using Cloudini."
+        description="Terms for using Cloudini.org and information about Cloudini software licensing."
       />
 
       <article className="max-w-3xl space-y-8">
@@ -15,7 +15,11 @@ export default function TermsOfService() {
             Terms of Service
           </h1>
           <p className="text-muted-foreground">
-            These terms apply to the Cloudini website.
+            These terms apply to your use of Cloudini.org.
+          </p>
+          <p className="text-muted-foreground">
+            Cloudini CLI and Cloudini Framework are separate open source
+            software projects and are governed by their own license.
           </p>
         </header>
 
@@ -24,16 +28,25 @@ export default function TermsOfService() {
           <ul className="text-muted-foreground list-disc space-y-1 pl-5">
             <li>
               Do not attempt to disrupt, misuse, or gain unauthorized access to
-              the website, systems, or data.
+              Cloudini.org or its underlying infrastructure.
             </li>
-            <li>Do not use the website to harm others.</li>
+            <li>
+              Do not use Cloudini.org in a way that harms the availability,
+              security, or integrity of the website.
+            </li>
           </ul>
         </section>
 
         <section className="space-y-3">
-          <h2 className="text-xl font-semibold">Open source software</h2>
+          <h2 className="text-xl font-semibold">Cloudini software</h2>
           <p className="text-muted-foreground">
-            Cloudini is open source and licensed under the MIT License.
+            Cloudini CLI and Cloudini Framework are open source software
+            projects.
+          </p>
+          <p className="text-muted-foreground">
+            These projects are licensed under the MIT License. Your use,
+            modification, and distribution of the software are governed by that
+            license, not by these terms.
           </p>
           <Button asChild variant="link" className="px-0">
             <a
@@ -49,8 +62,16 @@ export default function TermsOfService() {
         <section className="space-y-3">
           <h2 className="text-xl font-semibold">No warranty</h2>
           <p className="text-muted-foreground">
-            This website and the Cloudini software are provided "as is", without
+            Cloudini.org and the Cloudini software are provided "as is", without
             warranties of any kind.
+          </p>
+        </section>
+
+        <section className="space-y-3">
+          <h2 className="text-xl font-semibold">Changes</h2>
+          <p className="text-muted-foreground">
+            These terms may be updated from time to time. Any changes will be
+            published on this page.
           </p>
         </section>
       </article>
