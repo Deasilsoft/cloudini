@@ -9,20 +9,17 @@
     "framework",
     "cli"
   ],
-  "author": "Deasilsoft <contact@deasilsoft.com>",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Deasilsoft/cloudini.git"
-  },
   "homepage": "https://github.com/Deasilsoft/cloudini",
   "bugs": {
     "url": "https://github.com/Deasilsoft/cloudini/issues"
   },
-  "type": "module",
-  "engines": {
-    "node": ">=24 <25"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Deasilsoft/cloudini.git"
   },
+  "license": "MIT",
+  "author": "Deasilsoft <contact@deasilsoft.com>",
+  "type": "module",
   "workspaces": [
     "cli",
     "framework",
@@ -30,6 +27,10 @@
   ],
   "scripts": {
     "build": "npm run build --workspaces",
+    "clean": "npm run clean:install && npm run clean:workspaces",
+    "preclean:install": "rm -rf node_modules package-lock.json",
+    "clean:install": "npm install",
+    "clean:workspaces": "npm run clean --workspaces --if-present",
     "format": "prettier . --write",
     "format:check": "prettier . --check",
     "lint": "npm run lint --workspaces",
@@ -38,11 +39,15 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "eslint": "^10.2.0",
-    "globals": "^17.4.0",
-    "prettier": "^3.8.2",
-    "prettier-plugin-tailwindcss": "^0.7.2",
-    "typescript": "^6.0.2",
-    "typescript-eslint": "^8.58.1"
+    "eslint": "^10.3.0",
+    "globals": "^17.6.0",
+    "prettier": "^3.8.3",
+    "prettier-plugin-packagejson": "^3.0.2",
+    "prettier-plugin-tailwindcss": "^0.8.0",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.59.3"
+  },
+  "engines": {
+    "node": ">=24 <25"
   }
 }

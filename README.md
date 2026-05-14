@@ -2,7 +2,8 @@
 
 Write code. Summon a serverless app.
 
-Cloudini is a framework and CLI that generates a complete serverless application from a structured codebase.
+Cloudini is a framework and CLI that generates a complete serverless application
+from a structured codebase.
 
 ## Status
 
