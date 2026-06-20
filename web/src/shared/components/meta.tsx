@@ -5,7 +5,7 @@ type Props = {
   title?: string;
   description?: string;
   type?: "website" | "article";
-  tags?: string[];
+  tags?: readonly string[];
 };
 
 const BRAND = "Cloudini";

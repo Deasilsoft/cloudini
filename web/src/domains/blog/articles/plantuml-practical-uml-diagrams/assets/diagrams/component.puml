@@ -1,0 +1,21 @@
+@startuml
+top to bottom direction
+title Library application component diagram
+
+actor "Library\nMember" as Member
+actor "Librarian" as Librarian
+
+component "Library\nWeb App" as WebApp
+component "Catalog\nService" as Catalog
+component "Loan\nService" as Loan
+
+database "Library\nDatabase" as DB
+
+Member --> WebApp : search / borrow
+Librarian --> WebApp : manage books
+WebApp --> Catalog : search books
+WebApp --> Loan : borrow / return
+Loan --> Catalog : check availability
+Catalog --> DB : read catalog
+Loan --> DB : store loans
+@enduml

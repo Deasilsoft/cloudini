@@ -1,0 +1,12 @@
+@startuml
+title Loan state machine
+
+[*] --> Requested
+Requested --> Active : approve
+Requested --> Rejected : reject
+Active --> Returned : return
+Active --> Overdue : due date passes
+Overdue --> Returned : return
+Returned --> [*]
+Rejected --> [*]
+@enduml

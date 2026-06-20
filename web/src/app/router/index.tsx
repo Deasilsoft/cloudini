@@ -42,14 +42,16 @@ export const router = createBrowserRouter([
         path: "blog",
         lazy: {
           Component: () =>
-            import("@/domains/blog/routes").then((m) => m.default),
+            import("@/domains/blog/routes/blog").then((m) => m.default),
         },
       },
       {
         path: "blog/:slug",
         lazy: {
           Component: () =>
-            import("@/domains/blog/routes/article").then((m) => m.default),
+            import("@/domains/blog/routes/article-by-slug").then(
+              (m) => m.default,
+            ),
         },
       },
       {

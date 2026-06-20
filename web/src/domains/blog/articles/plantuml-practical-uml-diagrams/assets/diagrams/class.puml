@@ -1,0 +1,45 @@
+@startuml
+title Library domain model
+
+class Book {
+  + title: string
+  + author: string
+  + isbn: string
+}
+
+class BookCopy {
+  + copyId: string
+  + format: CopyFormat
+  + status: BookStatus
+  + maxConcurrentLoans: number
+}
+
+class Member {
+  + name: string
+  + email: string
+}
+
+class Loan {
+  + borrowedAt: Date
+  + dueAt: Date
+  + returnedAt: Date?
+}
+
+enum CopyFormat {
+  Physical
+  Digital
+}
+
+enum BookStatus {
+  Available
+  Reserved
+  Borrowed
+  Lost
+}
+
+Book "1" o-- "1..*" BookCopy
+Member "1" -- "0..*" Loan
+BookCopy "1" -- "0..*" Loan
+BookCopy --> CopyFormat
+BookCopy --> BookStatus
+@enduml

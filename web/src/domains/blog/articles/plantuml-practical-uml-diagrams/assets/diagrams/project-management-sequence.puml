@@ -1,0 +1,44 @@
+@startuml
+hide footbox
+title Diagram review workflow in project management tools
+
+actor "Developer" as Developer
+participant "Project Tool" as Tool
+participant "AI" as Ai
+participant "PlantUML Renderer" as Renderer
+participant "Reviewers" as Reviewers
+
+Developer -> Tool : Post task context and diagram goal
+activate Tool
+Tool --> Developer : Task saved
+deactivate Tool
+
+loop Diagram iteration (repeat until approved)
+  Developer -> Ai : Request PlantUML source for diagram need
+  activate Ai
+  Ai --> Developer : PlantUML source draft
+  deactivate Ai
+
+  Developer -> Tool : Post PlantUML source revision
+  activate Tool
+  Tool -> Renderer : Render preview
+  activate Renderer
+  Renderer --> Tool : Preview image
+  deactivate Renderer
+  Tool --> Developer : Preview ready
+  deactivate Tool
+
+  Developer -> Reviewers : Request review
+  activate Reviewers
+  Reviewers -> Tool : Post feedback comments
+  activate Tool
+  Tool --> Developer : Review feedback available
+  deactivate Tool
+  deactivate Reviewers
+end
+
+Developer -> Tool : Link accepted revision to task decision
+activate Tool
+Tool --> Developer : Decision updated
+deactivate Tool
+@enduml

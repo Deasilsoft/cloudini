@@ -1,0 +1,24 @@
+@startuml
+title Borrow book workflow
+
+start
+
+:Search for book;
+:Select book;
+
+if (Book available?) then (yes)
+  :Create loan;
+  :Set due date;
+  :Mark copy as borrowed;
+  :Show confirmation;
+else (no)
+  if (Reservation allowed?) then (yes)
+    :Create reservation;
+    :Show reservation confirmation;
+  else (no)
+    :Show unavailable message;
+  endif
+endif
+
+stop
+@enduml

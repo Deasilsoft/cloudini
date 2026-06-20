@@ -1,0 +1,15 @@
+@startuml
+title AI-assisted PlantUML review loop
+
+start
+:Describe the diagram goal and constraints;
+
+repeat
+  :Ask AI for PlantUML source;
+  :Render the diagram;
+  :Review meaning and layout;
+repeat while (Clear and accurate?) is (no)
+
+:Use in documentation or project discussion;
+stop
+@enduml

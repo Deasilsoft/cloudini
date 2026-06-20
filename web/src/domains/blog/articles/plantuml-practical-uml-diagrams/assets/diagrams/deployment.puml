@@ -1,0 +1,22 @@
+@startuml
+title Serverless library deployment
+
+actor "Library Member" as Member
+actor "Librarian" as Librarian
+
+node "Browser" as Browser
+
+cloud "Cloud Platform" {
+  node "Edge CDN" as EdgeCdn
+  storage "Object Storage\n (Static Assets)" as Assets
+  node "Managed API" as Api
+  database "Managed Database" as Database
+}
+
+Member --> Browser
+Librarian --> Browser
+Browser --> EdgeCdn : loads app
+EdgeCdn --> Assets : fetches origin files
+Browser --> Api : calls API
+Api --> Database : reads and writes
+@enduml

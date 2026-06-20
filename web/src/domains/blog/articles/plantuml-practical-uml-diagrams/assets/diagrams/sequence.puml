@@ -1,0 +1,24 @@
+@startuml
+hide footbox
+title Borrowing a book
+
+actor "Library Member" as Member
+
+participant "Library App" as App
+participant "Loan Service" as LoanService
+
+database "Library Database" as Database
+
+Member -> App : Borrow book
+activate App
+App -> LoanService : Request loan
+activate LoanService
+LoanService -> Database : Check availability
+Database --> LoanService : Book is available
+LoanService -> Database : Create loan
+Database --> LoanService : Loan saved
+LoanService --> App : Loan approved
+deactivate LoanService
+App --> Member : Show due date
+deactivate App
+@enduml

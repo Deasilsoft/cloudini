@@ -1,0 +1,23 @@
+@startuml
+left to right direction
+title Library system use cases
+
+actor "Library Member" as Member
+actor "Librarian" as Librarian
+
+rectangle "Library System" {
+  usecase "Search for books" as SearchBooks
+  usecase "Borrow book" as BorrowBook
+  usecase "Return book" as ReturnBook
+  usecase "Reserve book" as ReserveBook
+  usecase "Manage catalog" as ManageCatalog
+  usecase "Register new book" as RegisterBook
+}
+
+Member --> SearchBooks
+Member --> BorrowBook
+Member --> ReturnBook
+Member --> ReserveBook
+Librarian --> ManageCatalog
+Librarian --> RegisterBook
+@enduml
