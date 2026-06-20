@@ -83,15 +83,24 @@ jobs:
           echo "cloudfront_distribution_id=$(terraform output -raw cloudfront_distribution_id)" >> "$GITHUB_OUTPUT"
           echo "cloudfront_domain_name=$(terraform output -raw cloudfront_domain_name)" >> "$GITHUB_OUTPUT"
 
-      - name: Deploy web app to S3
+      - name: Deploy static assets to S3
         run: |
-          aws s3 sync web/dist "${{ steps.terraform_outputs.outputs.bucket_uri }}" --delete
+          aws s3 sync web/dist/assets "${{ steps.terraform_outputs.outputs.bucket_uri }}/assets" \
+            --delete \
+            --cache-control "public,max-age=31536000,immutable"
+
+      - name: Deploy HTML and metadata to S3
+        run: |
+          aws s3 sync web/dist "${{ steps.terraform_outputs.outputs.bucket_uri }}" \
+            --delete \
+            --exclude "assets/*" \
+            --cache-control "no-cache"
 
       - name: Invalidate CloudFront cache
         run: |
           aws cloudfront create-invalidation \
             --distribution-id "${{ steps.terraform_outputs.outputs.cloudfront_distribution_id }}" \
-            --paths "/*"
+            --paths "/" "/index.html" "/sitemap*" "/robots.txt"
 
       - name: Smoke test deployment
         run: |
