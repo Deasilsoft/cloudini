@@ -17,6 +17,8 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     environment: production
+    env:
+      VITE_SITE_URL: ${{ vars.VITE_SITE_URL }}
 
     steps:
       - name: Check out repository

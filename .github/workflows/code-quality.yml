@@ -9,6 +9,8 @@ on:
 jobs:
   code-quality:
     runs-on: ubuntu-latest
+    env:
+      VITE_SITE_URL: ${{ vars.VITE_SITE_URL }}
 
     steps:
       - name: Check out repository
