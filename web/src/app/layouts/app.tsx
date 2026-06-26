@@ -23,16 +23,16 @@ export default function AppLayout() {
             <div className="flex h-16 items-center justify-center md:justify-start">
               <Link
                 to="/"
-                title="Go to homepage"
-                aria-label="Go to homepage"
+                title="Go to cloudini.org homepage"
+                aria-label="Go to cloudini.org homepage"
                 className="mx-2 flex items-center gap-2 font-semibold tracking-tight hover:opacity-80 md:mx-4"
               >
                 <img
                   src="/favicon-64x64.png"
-                  alt="Cloudini logo"
+                  alt="cloudini.org logo"
                   className="h-8 w-8"
                 />
-                <span className="hidden md:inline">Cloudini</span>
+                <span className="hidden md:inline">cloudini.org</span>
               </Link>
             </div>
 
@@ -147,8 +147,8 @@ export default function AppLayout() {
                     href={repositoryURL}
                     target="_blank"
                     rel="noreferrer"
-                    title="Open Cloudini on GitHub"
-                    aria-label="Open Cloudini on GitHub"
+                    title="Open Cloudini CLI and framework on GitHub"
+                    aria-label="Open Cloudini CLI and framework on GitHub"
                     className="gap-2"
                   >
                     <GitBranch className="size-4" />

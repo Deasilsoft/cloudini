@@ -22,8 +22,8 @@ export default function BlogIndex() {
   return (
     <>
       <Meta
-        title="Blog"
-        description="Practical notes on Cloudini, serverless architecture, infrastructure, TypeScript, and developer tooling."
+        title="Blog | Cloudini CLI and Framework"
+        description="Practical notes on Cloudini CLI and framework, serverless cloud architecture, Terraform workflows, and developer tooling."
       />
 
       <article className="w-full max-w-5xl space-y-8">

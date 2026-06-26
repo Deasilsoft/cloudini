@@ -4,8 +4,8 @@ export default function PrivacyPolicy() {
   return (
     <>
       <Meta
-        title="Privacy Policy"
-        description="Learn how Cloudini.org processes and protects your data."
+        title="Privacy Policy | cloudini.org"
+        description="Privacy policy for cloudini.org, including website data, hosting, Cloudflare security, cookies, and third-party services."
       />
 
       <article className="max-w-3xl space-y-8">
@@ -14,24 +14,24 @@ export default function PrivacyPolicy() {
             Privacy Policy
           </h1>
           <p className="text-muted-foreground">
-            This policy explains how Cloudini.org handles data collected through
+            This policy explains how cloudini.org handles data collected through
             this website.
           </p>
           <p className="text-muted-foreground">
-            This policy applies only to Cloudini.org itself. It does not apply
+            This policy applies only to cloudini.org itself. It does not apply
             to third-party services linked from this website, or to software
-            projects such as Cloudini CLI or Cloudini Framework.
+            such as the Cloudini CLI and framework.
           </p>
         </header>
 
         <section className="space-y-3">
           <h2 className="text-xl font-semibold">Website operation</h2>
           <p className="text-muted-foreground">
-            Cloudini.org does not use analytics, advertising trackers, or user
+            cloudini.org does not use analytics, advertising trackers, or user
             profiling.
           </p>
           <p className="text-muted-foreground">
-            Cloudini.org is hosted on AWS and delivered through Cloudflare.
+            cloudini.org is hosted on AWS and delivered through Cloudflare.
             These providers process technical data such as IP addresses, request
             headers, and similar metadata as necessary to deliver, secure, and
             operate the website.
@@ -41,7 +41,7 @@ export default function PrivacyPolicy() {
         <section className="space-y-3">
           <h2 className="text-xl font-semibold">Cookies</h2>
           <p className="text-muted-foreground">
-            Cloudini.org does not use cookies for analytics or marketing.
+            cloudini.org does not use cookies for analytics or marketing.
           </p>
           <p className="text-muted-foreground">
             Cloudflare may set strictly necessary cookies related to security
@@ -58,9 +58,8 @@ export default function PrivacyPolicy() {
             terms and privacy policies.
           </p>
           <p className="text-muted-foreground">
-            Software projects referenced on this website, including Cloudini CLI
-            and Cloudini Framework, are not covered by this policy unless stated
-            otherwise separately.
+            Software referenced on this website, including the Cloudini CLI and
+            framework, is not covered by this policy unless stated separately.
           </p>
         </section>
 

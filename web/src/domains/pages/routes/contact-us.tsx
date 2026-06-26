@@ -5,27 +5,31 @@ export default function ContactUs() {
   return (
     <>
       <Meta
-        title="Contact Us"
-        description="Get in touch with the team behind Cloudini for questions, support, or collaboration."
+        title="Contact | Cloudini CLI and Framework"
+        description="Contact the Cloudini team about the Cloudini CLI and framework, serverless cloud development, support, or collaboration."
       />
 
       <article className="max-w-3xl space-y-8">
         <header className="space-y-3">
-          <h1 className="text-3xl font-semibold tracking-tight">Contact Us</h1>
-          <p className="text-muted-foreground">We want to collaborate.</p>
+          <h1 className="text-3xl font-semibold tracking-tight">Contact</h1>
+          <p className="text-muted-foreground">
+            Contact the Cloudini team for support, collaboration, or questions
+            about serverless cloud development.
+          </p>
         </header>
 
         <section className="space-y-3">
           <p className="text-muted-foreground">
-            Questions, issues, or feature requests are handled through GitHub.
+            Questions, issues, and feature requests for the Cloudini CLI and
+            framework are handled through GitHub Issues.
           </p>
           <Button asChild variant="outline">
             <a
               href="https://github.com/Deasilsoft/cloudini/issues"
               target="_blank"
               rel="noreferrer"
-              title="Open GitHub issues for Cloudini"
-              aria-label="Open GitHub issues for Cloudini"
+              title="Open Cloudini CLI and framework GitHub issues"
+              aria-label="Open Cloudini CLI and framework GitHub issues"
             >
               Open GitHub Issues
             </a>

@@ -6,8 +6,9 @@ export default function NotFound() {
   return (
     <>
       <Meta
-        title="Page not found"
+        title="Page Not Found | cloudini.org"
         description="The page you are looking for does not exist."
+        noIndex
       />
 
       <article className="flex flex-1 flex-col items-center justify-center text-center">
@@ -24,7 +25,7 @@ export default function NotFound() {
 
         <div className="mt-6">
           <Button asChild variant="outline">
-            <Link to="/">Read about Cloudini</Link>
+            <Link to="/">Read about Cloudini CLI and framework</Link>
           </Button>
         </div>
       </article>

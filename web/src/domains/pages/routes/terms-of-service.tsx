@@ -5,8 +5,8 @@ export default function TermsOfService() {
   return (
     <>
       <Meta
-        title="Terms of Service"
-        description="Terms for using Cloudini.org and information about Cloudini software licensing."
+        title="Terms of Service | cloudini.org"
+        description="Terms for using cloudini.org and the MIT-licensed Cloudini CLI and framework, including acceptable use and warranty limits."
       />
 
       <article className="max-w-3xl space-y-8">
@@ -15,11 +15,10 @@ export default function TermsOfService() {
             Terms of Service
           </h1>
           <p className="text-muted-foreground">
-            These terms apply to your use of Cloudini.org.
+            These terms apply to your use of cloudini.org.
           </p>
           <p className="text-muted-foreground">
-            Cloudini CLI and Cloudini Framework are separate open source
-            software projects and are governed by their own license.
+            The Cloudini CLI and framework is MIT-licensed open source software.
           </p>
         </header>
 
@@ -28,10 +27,10 @@ export default function TermsOfService() {
           <ul className="text-muted-foreground list-disc space-y-1 pl-5">
             <li>
               Do not attempt to disrupt, misuse, or gain unauthorized access to
-              Cloudini.org or its underlying infrastructure.
+              cloudini.org or its underlying infrastructure.
             </li>
             <li>
-              Do not use Cloudini.org in a way that harms the availability,
+              Do not use cloudini.org in a way that harms the availability,
               security, or integrity of the website.
             </li>
           </ul>
@@ -40,11 +39,10 @@ export default function TermsOfService() {
         <section className="space-y-3">
           <h2 className="text-xl font-semibold">Cloudini software</h2>
           <p className="text-muted-foreground">
-            Cloudini CLI and Cloudini Framework are open source software
-            projects.
+            Cloudini CLI and framework is open source software.
           </p>
           <p className="text-muted-foreground">
-            These projects are licensed under the MIT License. Your use,
+            This software is licensed under the MIT License. Your use,
             modification, and distribution of the software are governed by that
             license, not by these terms.
           </p>
@@ -62,8 +60,8 @@ export default function TermsOfService() {
         <section className="space-y-3">
           <h2 className="text-xl font-semibold">No warranty</h2>
           <p className="text-muted-foreground">
-            Cloudini.org and the Cloudini software are provided "as is", without
-            warranties of any kind.
+            cloudini.org and the Cloudini CLI and framework are provided "as
+            is", without warranties of any kind.
           </p>
         </section>
 
