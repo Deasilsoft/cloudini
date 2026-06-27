@@ -5,7 +5,7 @@ export const article = {
   slug: "plantuml-practical-uml-diagrams",
   title: "How to create and maintain UML diagrams with PlantUML",
   description:
-    "A practical guide to use case, sequence, component, deployment, class, activity, and state machine diagrams with PlantUML examples that can be versioned, reviewed, and maintained with code.",
+    "Create maintainable PlantUML diagrams with practical UML examples for use cases, sequences, components, deployments, classes, activities, and states.",
   publishedAt: "2026-06-20T00:00:00.000Z",
   tags: ["Architecture", "Documentation", "PlantUML"],
   thumbnailSrc: useCaseDiagram,

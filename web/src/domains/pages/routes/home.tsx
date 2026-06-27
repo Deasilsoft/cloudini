@@ -8,7 +8,7 @@ export default function Home() {
     <>
       <Meta
         title="Cloudini CLI and Framework | Serverless Cloud Development"
-        description="Build serverless cloud backends in TypeScript or JavaScript. Cloudini CLI compiles Framework code into serverless runtime artifacts and Terraform configuration for AWS, Azure, and Google Cloud."
+        description="Build serverless cloud backends with Cloudini CLI. Compile TypeScript or JavaScript into Terraform-ready artifacts for AWS, Azure, and Google Cloud."
       />
 
       <div className="max-w-5xl space-y-12">
